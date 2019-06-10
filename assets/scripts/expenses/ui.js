@@ -21,9 +21,25 @@ const onShowFailure = responseData => {
   $('#get-message').text('failed to GET')
 }
 
+const showExpensesTemplate = require('../templates/expense-listing.handlebars')
+
+const getExpensesSuccess = (data) => {
+  console.log('success')
+  console.log(data)
+  const showExpensesHtml = showExpensesTemplate({ expenses: data.expenses })
+  $('#content').html(showExpensesHtml)
+}
+
+const getExpensesFailure = (data) => {
+  console.log('failure')
+  console.log('Failure', data)
+  $('#get-message').text('failed to GET')
+}
 module.exports = {
   onCreateSuccess,
   onCreateFailure,
   onShowFailure,
-  onShowSuccess
+  onShowSuccess,
+  getExpensesSuccess,
+  getExpensesFailure
 }

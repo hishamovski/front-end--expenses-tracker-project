@@ -26,7 +26,15 @@ const onShow = event => {
     .catch(ui.onShowFailure)
 }
 
+const onGetExpenses = (event) => {
+  event.preventDefault()
+  api.getExpenses()
+    .then(ui.getExpensesSuccess)
+    .catch(ui.getExpensesFailure)
+}
+
 module.exports = {
   onCreate,
-  onShow
+  onShow,
+  onGetExpenses
 }

@@ -20,4 +20,5 @@ $(() => {
 
   $('#expense-create').on('submit', expensesEvents.onCreate)
   $('#get-expense').on('submit', expensesEvents.onShow)
+  $('#expense-index').on('click', expensesEvents.onGetExpenses)
 })

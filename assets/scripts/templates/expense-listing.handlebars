@@ -1,0 +1,19 @@
+{{#each expenses as |expense|}}
+
+  <section data-id="{{expense.id}}">
+    <h6>Amount:</h6>
+    <h3>
+      {{expense.amount }}
+    </h2>
+    <h6>Author:</h6>
+    <p>
+      {{#if expense.date}}
+        {{expense.date}}
+      {{else}}
+        No Date provided.
+      {{/if}}
+    </p>
+    <button data-id="{{expense.id}}" class="btn btn-danger remove-book">Delete Expense</button>
+  </section>
+
+{{/each}}

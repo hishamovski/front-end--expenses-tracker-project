@@ -91,22 +91,52 @@
     </div>
   </nav>
 
-    <h2>Create an expense</h2>
 
-  <form id="expense-create">
-  	<input type="number" placeholder="Amount" name="expense[amount]" required="required">
-  	<input type="date"  placeholder="date" name="expense[date]" required="required">
-  	<input type="submit" value="Create">
-	</form>
 
-  <h2>Create an expense</h2>
+  <div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-controls="messages">Messages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-controls="settings">Settings</a>
+    </li>
+  </ul>
 
-<form id="get-expense">
-  <input type="number" placeholder="ID" name="expense[id]" required="required">
-  <input type="submit" value="Get An Expense">
-</form>
+  <div class="tab-content">
+    <div class="tab-pane active" id="home" role="tabpanel">
+      <h2>Get All expenses</h2>
+    <form id="expense-index">
+      <input type="submit" class="button-submit" value="Get Expenses">
+      <div id="content" class="content"></div>
+      <p id="get-message"></p>
+    </form>
 
-<p id="get-message"></p>
+
+    </div>
+
+    <div class="tab-pane" id="messages" role="tabpanel">
+        <h2>Create An expense</h2>
+      <form id="expense-create">
+        <input type="number" placeholder="Amount" name="expense[amount]" required="required">
+        <input type="date"  placeholder="date" name="expense[date]" required="required">
+        <input type="submit" class="button-submit" value="Create">
+      </form>
+
+      <p id="get-message"></p>
+    </div>
+    <div class="tab-pane" id="settings" role="tabpanel">
+      <h2>Get An expense</h2>
+      <form id="get-expense">
+      <input type="number" placeholder="ID" name="expense[id]" required="required">
+      <input type="submit" class="button-submit" value="Get An Expense">
+      </form>
+    </div>
+  </div>
+
 
 </body>
 
