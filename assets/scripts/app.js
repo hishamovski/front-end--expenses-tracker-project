@@ -7,6 +7,7 @@
 // require('./example')
 
 const authEvents = require('./auth/events')
+const expensesEvents = require('./expenses/events')
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -16,4 +17,7 @@ $(() => {
   $(document).ready(function () {
     $('#profile').hide()
   })
+
+  $('#expense-create').on('submit', expensesEvents.onCreate)
+  $('#get-expense').on('submit', expensesEvents.onShow)
 })

@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://fathomless-depths-22387.herokuapp.com/',
+  production: 'https://infinite-cliffs-65510.herokuapp.com/',
   development: 'http://localhost:4741/'
 }
 
@@ -15,3 +15,6 @@ if (window.location.hostname === 'localhost') {
 module.exports = {
   apiUrl
 }
+// https://infinite-cliffs-65510.herokuapp.com/
+// https://fathomless-depths-22387.herokuapp.com/
+// http://localhost:4741/

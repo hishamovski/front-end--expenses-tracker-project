@@ -91,6 +91,23 @@
     </div>
   </nav>
 
+    <h2>Create an expense</h2>
+
+  <form id="expense-create">
+  	<input type="number" placeholder="Amount" name="expense[amount]" required="required">
+  	<input type="date"  placeholder="date" name="expense[date]" required="required">
+  	<input type="submit" value="Create">
+	</form>
+
+  <h2>Create an expense</h2>
+
+<form id="get-expense">
+  <input type="number" placeholder="ID" name="expense[id]" required="required">
+  <input type="submit" value="Get An Expense">
+</form>
+
+<p id="get-message"></p>
+
 </body>
 
 </html>
