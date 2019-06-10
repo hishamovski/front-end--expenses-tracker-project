@@ -26,7 +26,17 @@ const show = (formData) => {
   })
 }
 
+const getExpenses = function () {
+  return $.ajax({
+    url: config.apiUrl + 'expenses',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   create,
-  show
+  show,
+  getExpenses
 }
