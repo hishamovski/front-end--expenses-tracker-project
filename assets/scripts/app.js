@@ -18,6 +18,21 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('.add-new').click(function () {
+    const index = $('table tbody tr:last-child').index()
+    const row = '<tr>' +
+      '<td><input type="text" value="ID" class="form-control" name="id" id="name" readonly></td>' +
+      '<td><input type="text" class="form-control" name="department" id="department"></td>' +
+      '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
+      '<td><a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"></i></a><a class="delete" title="Delete" data-id="{{expense.id}}"  data-toggle="tooltip"><i class="material-icons"></i></a></td>' +
+    '</tr>'
+    // '<td><input type="text" class="form-control" name="id" id="name"></td>' +
+    // <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a>
+    // <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"></i></a>
+    // <a class="delete" title="Delete" data-id="{{expense.id}}"  data-toggle="tooltip"><i class="material-icons"></i></a>
+
+    $('table').append(row)
+    $('table tbody tr').eq(index + 1).find('.add, .edit').toggle()
+    $('[data-toggle="tooltip"]').tooltip()
   })
 
   $('.content').on('click', '.add', function () {
@@ -44,8 +59,11 @@ $(() => {
           'date': `${data[2]}`
         }
       }
-      console.log(data2 + ' ' + data[0])
-      expensesEvents.onUpdate(data2, data[0])
+      if (data[0] === 'ID') {
+        expensesEvents.onCreate(data2)
+      } else {
+        expensesEvents.onUpdate(data2, data[0])
+      }
 
       $(this).parents('tr').find('.add, .edit').toggle()
       $('.add-new').removeAttr('disabled')

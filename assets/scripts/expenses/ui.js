@@ -1,7 +1,7 @@
 'use strict'
 
 const onCreateSuccess = responseData => {
-  $('.get-message').text('Created')
+  console.log('created')
 }
 
 const onCreateFailure = responseData => {
