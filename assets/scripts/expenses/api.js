@@ -35,8 +35,30 @@ const getExpenses = function () {
   })
 }
 
+const deleteExpense = function (id) {
+  return $.ajax({
+    url: config.apiUrl + 'expenses/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const update = (data, id) => {
+  return $.ajax({
+    url: config.apiUrl + 'expenses/' + id,
+    method: 'PATCH',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   create,
   show,
-  getExpenses
+  getExpenses,
+  deleteExpense,
+  update
 }

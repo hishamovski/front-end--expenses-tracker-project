@@ -26,15 +26,42 @@ const onShow = event => {
     .catch(ui.onShowFailure)
 }
 
-const onGetExpenses = (event) => {
+const onGetExpenses = event => {
   event.preventDefault()
   api.getExpenses()
     .then(ui.getExpensesSuccess)
     .catch(ui.getExpensesFailure)
 }
 
+const getExpenses = () => {
+  api.getExpenses()
+    .then(ui.getExpensesSuccess)
+    .catch(ui.getExpensesFailure)
+}
+
+const onDeleteExpense = (event) => {
+  const id = $(event.target).closest('tr').data('id')
+  console.log(id)
+  event.preventDefault()
+  api.deleteExpense(id)
+    .then(function () {
+      onGetExpenses(event)
+    })
+    .catch(ui.getExpensesFailure)
+}
+
+const onUpdate = (data, id) => {
+  event.preventDefault()
+
+  api.update(data, id)
+    .then(ui.onUpdateSuccess)
+    .catch(ui.onUpdateFailure)
+}
 module.exports = {
   onCreate,
   onShow,
-  onGetExpenses
+  onGetExpenses,
+  getExpenses,
+  onDeleteExpense,
+  onUpdate
 }

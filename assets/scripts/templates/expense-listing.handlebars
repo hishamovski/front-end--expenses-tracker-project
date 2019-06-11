@@ -1,19 +1,29 @@
 {{#each expenses as |expense|}}
 
-  <section data-id="{{expense.id}}">
-    <h6>Amount:</h6>
-    <h3>
-      {{expense.amount }}
-    </h2>
-    <h6>Author:</h6>
-    <p>
-      {{#if expense.date}}
-        {{expense.date}}
-      {{else}}
-        No Date provided.
-      {{/if}}
-    </p>
-    <button data-id="{{expense.id}}" class="btn btn-danger remove-book">Delete Expense</button>
-  </section>
+  <!-- <section data-id="{{expense.id}}"> -->
+    <tr data-id="{{expense.id}}">
+        <td>{{expense.id}}</td>
+        <td>{{expense.amount}}</td>
+        <td>{{expense.date}}</td>
+        <td>
+            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a>
+            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"></i></a>
+            <a class="delete" title="Delete" data-id="{{expense.id}}"  data-toggle="tooltip"><i class="material-icons"></i></a>
+        </td>
+    </tr>
+    {{/each}}
+    <!-- <button data-id="{{book.id}}" class="btn btn-danger remove-book">Delete Book</button> -->
 
-{{/each}}
+
+    <!-- <form id="">
+      <br>
+      <input type="number" name="expense[amount]" required="required" value='{{expense.id}}'>
+      <input class="editable" type="number" name="expense[amount]" required="required" placeholder='{{expense.amount}}'>
+      <input class="editable" type="date"  name="expense[date]" required="required" placeholder='{{expense.date}}'>
+      <button data-id="{{expense.id}}" class="btn btn-danger remove-book">Delete Expense</button>
+      <button data-id="{{expense.id}}" class="btn btn-danger remove-book">Update Expense</button>
+
+    </form> -->
+
+
+  <!-- </section> -->

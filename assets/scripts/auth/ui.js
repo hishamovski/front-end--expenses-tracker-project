@@ -1,6 +1,8 @@
 'use strict'
 
+const expenseEvents = require('../expenses/events.js')
 const store = require('../store')
+
 const onSignUpSuccess = responseData => {
   $('#sign-up')[0].reset()
   $('#feedback').show()
@@ -26,6 +28,7 @@ const onSignUpFailure = responseData => {
 const onSignInSuccess = responseData => {
   $('#sign-in')[0].reset()
   store.user = responseData.user
+  expenseEvents.getExpenses()
   $('#signin').hide()
   $('#signup').hide()
   $('#profile').show()
