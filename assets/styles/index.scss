@@ -4,7 +4,10 @@ $body-bg-color: $gray-200;
 $font-color: $light;
 
 
-
+	h2 {
+		text-align: center;
+		margin: 30px 10px;
+	}
 	.table-wrapper {
 		width: 700px;
 		margin: 30px auto;
@@ -119,6 +122,11 @@ p {
 
 .failure {
   color: #F00;
+}
+
+.password-validation {
+  color: #F00;
+  margin: 10px 0 10px 0;
 }
 
 .button-submit {
