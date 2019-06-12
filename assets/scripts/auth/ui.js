@@ -79,6 +79,7 @@ const onChangePasswordFailure = responseData => {
 const onSignOutSuccess = () => {
   $('#profile').hide()
   $('.container').hide()
+  $('#expense-h2').show()
   $('#signin').show()
   $('#signup').show()
   $('.btn-lg').text('')
