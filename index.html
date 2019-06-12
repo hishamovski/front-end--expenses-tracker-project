@@ -134,52 +134,24 @@
       <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-controls="messages">Messages</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-controls="settings">Settings</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#list" role="tab" aria-controls="settings">List Expenses</a>
+      <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-controls="settings">Show Expense</a>
     </li>
   </ul>
 
   <div class="tab-content">
-
     <div class="tab-pane active" id="home" role="tabpanel">
+  </div>
 
-
-    </div>
-
-    <div class="tab-pane" id="messages" role="tabpanel">
-        <h2>Create An expense</h2>
-      <form id="expense-create">
-        <input type="number" placeholder="Amount" name="expense[amount]" required="required">
-        <input type="date"  placeholder="date" name="expense[date]" required="required">
-        <input type="submit" class="button-submit" value="Create">
-      </form>
-
-      <p class="get-message"></p>
-    </div>
 
     <div class="tab-pane" id="settings" role="tabpanel">
-      <h2>Get An expense</h2>
       <form id="get-expense">
       <input type="number" placeholder="ID" name="expense[id]" required="required">
       <input type="submit" class="button-submit" value="Get An Expense">
       </form>
       <p class="get-message"></p>
     </div>
-
-    <div class="tab-pane" id="list" role="tabpanel">
-
-    </form>
     </div>
-
-
   </div>
-
-
 </body>
 
 </html>

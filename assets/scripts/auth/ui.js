@@ -82,7 +82,6 @@ const onSignOutSuccess = () => {
   $('#expense-h2').show()
   $('#signin').show()
   $('#signup').show()
-  $('.btn-lg').text('')
   $('#result').text('')
 }
 
