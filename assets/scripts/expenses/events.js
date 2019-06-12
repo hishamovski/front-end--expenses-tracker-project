@@ -4,11 +4,12 @@ const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 
-const onCreate = (data) => {
+const onCreate = (data, event) => {
   event.preventDefault()
-
   api.create(data)
-    .then(ui.onCreateSuccess)
+    .then(function () {
+      onGetExpenses(event)
+    })
     .catch(ui.onCreateFailure)
 }
 
@@ -38,22 +39,23 @@ const getExpenses = () => {
 
 const onDeleteExpense = (event) => {
   const id = $(event.target).closest('tr').data('id')
-  console.log(id)
-  event.preventDefault()
-  api.deleteExpense(id)
-    .then(function () {
-      onGetExpenses(event)
-    })
-    .catch(ui.getExpensesFailure)
+  if (id !== undefined) {
+    event.preventDefault()
+    api.deleteExpense(id)
+      .then(function () {
+        onGetExpenses(event)
+      })
+      .catch(ui.getExpensesFailure)
+  }
 }
 
 const onUpdate = (data, id) => {
   event.preventDefault()
-
   api.update(data, id)
     .then(ui.onUpdateSuccess)
     .catch(ui.onUpdateFailure)
 }
+
 module.exports = {
   onCreate,
   onShow,

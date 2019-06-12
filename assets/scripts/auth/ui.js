@@ -31,6 +31,7 @@ const onSignInSuccess = responseData => {
   expenseEvents.getExpenses()
   $('#signin').hide()
   $('#signup').hide()
+  $('.container').show()
   $('#profile').show()
   $('#feedback').show()
   $('#feedback').text('You Sign-In Successfully')
@@ -74,6 +75,7 @@ const onChangePasswordFailure = responseData => {
 
 const onSignOutSuccess = () => {
   $('#profile').hide()
+  $('.container').hide()
   $('#signin').show()
   $('#signup').show()
   $('.btn-lg').text('')

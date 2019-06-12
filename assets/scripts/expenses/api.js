@@ -5,7 +5,7 @@ const config = require('../config.js')
 
 const create = formData => {
   return $.ajax({
-    url: config.apiUrl + '/expenses',
+    url: config.apiUrl + 'expenses',
     method: 'POST',
     data: formData,
     headers: {

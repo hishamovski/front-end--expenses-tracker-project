@@ -11,7 +11,9 @@ const expensesEvents = require('./expenses/events')
 
 $(() => {
   $('#profile').hide()
-  $('[data-toggle="tooltip"]').tooltip()
+  $('.container').hide()
+
+  //  $('[data-toggle="tooltip"]').tooltip()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -20,8 +22,8 @@ $(() => {
   $('.add-new').click(function () {
     const index = $('table tbody tr:last-child').index()
     const row = '<tr>' +
-      '<td><input type="text" value="ID" class="form-control" name="id" id="name" readonly></td>' +
-      '<td><input type="text" class="form-control" name="department" id="department"></td>' +
+      '<td><input type="text" value="ID" class="form-control" name="name" id="name" readonly></td>' +
+      '<td><input type="text" class="form-control" name="department" id="department" ></td>' +
       '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
       '<td><a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"></i></a><a class="delete" title="Delete" data-id="{{expense.id}}"  data-toggle="tooltip"><i class="material-icons"></i></a></td>' +
     '</tr>'
@@ -32,7 +34,7 @@ $(() => {
 
     $('table').append(row)
     $('table tbody tr').eq(index + 1).find('.add, .edit').toggle()
-    $('[data-toggle="tooltip"]').tooltip()
+    // $('[data-toggle="tooltip"]').tooltip()
   })
 
   $('.content').on('click', '.add', function () {
@@ -60,13 +62,12 @@ $(() => {
         }
       }
       if (data[0] === 'ID') {
-        expensesEvents.onCreate(data2)
+        expensesEvents.onCreate(data2, event)
       } else {
         expensesEvents.onUpdate(data2, data[0])
       }
 
       $(this).parents('tr').find('.add, .edit').toggle()
-      $('.add-new').removeAttr('disabled')
     }
   })
 
@@ -75,8 +76,13 @@ $(() => {
       $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">')
     })
     $(this).parents('tr').find('.add, .edit').toggle()
-    $('.add-new').attr('disabled', 'disabled')
   })
+
+  $('.content').on('click', '.delete', function () {
+    $(this).parents('tr').remove()
+    expensesEvents.onDeleteExpense(event)
+  })
+
   $('.content').on('click', '.delete', expensesEvents.onDeleteExpense)
   $('#expense-create').on('submit', expensesEvents.onCreate)
   $('#get-expense').on('submit', expensesEvents.onShow)

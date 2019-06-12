@@ -86,12 +86,6 @@ $font-color: $light;
 
 
 
-
-
-section {
-  align-items: center
-}
-
 .nav.nav-tabs {
     float: left;
     display: block;
@@ -139,22 +133,14 @@ p {
 .button-submit:hover {
     background: #31bfb1;
 }
-
-input {
-  border: 3px;
-  display: flex;
-  font-weight: normal;
-  padding: 8px 12px;
-  width: 200px;
-  left: auto;
-  right: 0;
-  font-size: 14px;
-  margin-top: 5px;
+.sign-out {
   border-radius: 3px;
-  border-color: #e5e5e5;
-
+  color: #fff;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  vertical-align: middle;
+  border: none;
 }
-// background: #33cabb;  color: white;
 
 .messagep {
   padding: 10px;
