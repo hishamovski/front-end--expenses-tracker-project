@@ -39,7 +39,7 @@ const getExpenses = () => {
 
 const onDeleteExpense = (event) => {
   const id = $(event.target).closest('tr').data('id')
-  if (id !== undefined) {
+  if (id !== undefined && id !== '' && id !== 'ID') {
     event.preventDefault()
     api.deleteExpense(id)
       .then(function () {
