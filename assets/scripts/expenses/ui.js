@@ -14,7 +14,7 @@ const onShowFailure = responseData => {
 
 const showExpensesTemplate = require('../templates/expense-listing.handlebars')
 
-const getExpensesSuccess = (data) => {
+const getExpensesSuccess = (data, isUpdateAction) => {
   let jan = 0
   let feb = 0
   let mar = 0
@@ -142,16 +142,20 @@ const curr = new Date().getFullYear()
   const showExpensesHtml = showExpensesTemplate({ expenses: data.expenses })
   $('.content').html(showExpensesHtml)
   chart.render()
-  $('#action-feedback').addClass('success')
-  $('#action-feedback').text('Change updated successfully')
-  setTimeout(function () {
-    $('#action-feedback').hide()
-  }, 3000)
+  if (isUpdateAction === true) {
+    $('#action-feedback').addClass('success')
+    $('#action-feedback').text('Change updated successfully')
+    $('#action-feedback').show()
+    setTimeout(function () {
+      $('#action-feedback').hide()
+    }, 3000)
+  }
 }
 
 const getExpensesFailure = (data) => {
   $('#action-feedback').addClass('failure')
   $('#action-feedback').text('Change updated failed')
+  $('#action-feedback').show()
   setTimeout(function () {
     $('#action-feedback').hide()
   }, 4000)
@@ -160,6 +164,7 @@ const getExpensesFailure = (data) => {
 const onUpdateSuccess = responseData => {
   $('#action-feedback').addClass('success')
   $('#action-feedback').text('Change updated successfully')
+  $('#action-feedback').show()
   setTimeout(function () {
     $('#action-feedback').hide()
   }, 3000)
@@ -168,6 +173,7 @@ const onUpdateSuccess = responseData => {
 const onUpdateFailure = responseData => {
   $('#action-feedback').addClass('failure')
   $('#action-feedback').text('Change updated failed')
+  $('#action-feedback').show()
   setTimeout(function () {
     $('#action-feedback').hide()
   }, 3000)
