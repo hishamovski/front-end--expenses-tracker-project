@@ -8,6 +8,7 @@ const onSignUpSuccess = responseData => {
   $('#feedback').show()
   $('#feedback').text('You Sign-up Successfully')
   $('#feedback').removeClass()
+  clearForms()
   $('#feedback').addClass('success')
   setTimeout(function () {
     $('#feedback').hide()
@@ -15,8 +16,10 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
+
   $('#sign-up')[0].reset()
   $('#feedback').show()
+  clearForms()
   $('#feedback').text('Sign-up Failure')
   $('#feedback').removeClass()
   $('#feedback').addClass('failure')
@@ -26,9 +29,11 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
+
   $('#sign-in')[0].reset()
   store.user = responseData.user
   expenseEvents.getExpenses()
+  clearForms()
   $('#signin').hide()
   $('#signup').hide()
   $('#expense-h2').hide()
@@ -44,6 +49,8 @@ const onSignInSuccess = responseData => {
 }
 
 const onSignInFailure = responseData => {
+  clearForms()
+
   $('#feedback').show()
   $('#feedback').text('Sign-In Failure')
   $('#feedback').removeClass()
@@ -59,6 +66,7 @@ const onChangePasswordSuccess = responseData => {
   $('#feedback').text('Password change Successfully')
   $('#feedback').removeClass()
   $('#feedback').addClass('success')
+  clearForms()
   setTimeout(function () {
     $('#feedback').hide()
   }, 5000)
@@ -69,6 +77,7 @@ const onChangePasswordFailure = responseData => {
   $('#feedback').text('Password Change Failure')
   $('#feedback').removeClass()
   $('#feedback').addClass('failure')
+  clearForms()
   setTimeout(function () {
     $('#feedback').hide()
   }, 5000)
@@ -81,9 +90,21 @@ const onSignOutSuccess = () => {
   $('#signin').show()
   $('#signup').show()
   $('#result').text('')
+  clearForms()
 }
 
 const onSignOutFailure = () => {
+  clearForms()
+}
+
+const clearForms = function () {
+  $('#text1').val('')
+  $('#text2').val('')
+  $('#text3').val('')
+  $('#text4').val('')
+  $('#text5').val('')
+  $('#text6').val('')
+  $('#text7').val('')
 }
 
 module.exports = {

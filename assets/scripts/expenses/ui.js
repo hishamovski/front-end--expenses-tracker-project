@@ -151,7 +151,6 @@ const onUpdateSuccess = responseData => {
 const onUpdateFailure = responseData => {
 }
 
-
 module.exports = {
   onCreateFailure,
   onShowFailure,
