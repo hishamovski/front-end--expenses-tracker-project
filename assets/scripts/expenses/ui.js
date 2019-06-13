@@ -1,6 +1,5 @@
 'use strict'
 
-
 const onCreateFailure = responseData => {
 }
 
@@ -30,49 +29,52 @@ const getExpensesSuccess = (data) => {
   let dec = 0
 
 const curr = new Date().getFullYear()
-  for (let i = 0; i < data.expenses.length; i++) {
-    if (data.expenses[i].date.substring(0, 4) == curr) {
-      if (data.expenses[i].date.substring(5, 7) == '01') {
-        jan += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '02') {
-        feb += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '03') {
-        mar += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '04') {
-        apr += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '05') {
-        may += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '06') {
-        jun += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '07') {
-        jul += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '08') {
-        aug += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '09') {
-        sep += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '10') {
-        oct += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '11') {
-        nov += data.expenses[i].amount
-      }
-      if (data.expenses[i].date.substring(5, 7) == '12') {
-        dec += data.expenses[i].amount
-      }
+  if (data.expenses.length > 0) {
+    for (let i = 0; i < data.expenses.length; i++) {
+      if (data.expenses[i].date.substring(0, 4) == curr) {
+        if (data.expenses[i].date.substring(5, 7) == '01') {
+          jan += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '02') {
+          feb += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '03') {
+          mar += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '04') {
+          apr += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '05') {
+          may += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '06') {
+          jun += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '07') {
+          jul += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '08') {
+          aug += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '09') {
+          sep += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '10') {
+          oct += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '11') {
+          nov += data.expenses[i].amount
+        }
+        if (data.expenses[i].date.substring(5, 7) == '12') {
+          dec += data.expenses[i].amount
+        }
     }
   }
+}
+
   const chart = new CanvasJS.Chart('chartContainer', {
     title: {
-      text: 'Expenses Tracker'
+      text: `Expenses Tracker in ${curr}`
     },
     axisX: {
       title: 'timeline',
