@@ -64,7 +64,7 @@ $(() => {
       if (data[0] === 'ID') {
         expensesEvents.onCreate(data2, event)
       } else {
-        expensesEvents.onUpdate(data2, data[0])
+        expensesEvents.onUpdate(data2, data[0], event)
       }
 
       $(this).parents('tr').find('.add, .edit').toggle()

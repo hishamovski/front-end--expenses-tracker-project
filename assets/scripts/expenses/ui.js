@@ -16,7 +16,6 @@ const onShowFailure = responseData => {
 const showExpensesTemplate = require('../templates/expense-listing.handlebars')
 
 const getExpensesSuccess = (data) => {
-
   let jan = 0
   let feb = 0
   let mar = 0

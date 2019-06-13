@@ -49,10 +49,12 @@ const onDeleteExpense = (event) => {
   }
 }
 
-const onUpdate = (data, id) => {
+const onUpdate = (data, id, event) => {
   event.preventDefault()
   api.update(data, id)
-    .then(ui.onUpdateSuccess)
+    .then(function () {
+      onGetExpenses(event)
+    })
     .catch(ui.onUpdateFailure)
 }
 
