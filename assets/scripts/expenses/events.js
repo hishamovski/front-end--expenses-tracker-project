@@ -61,8 +61,8 @@ const onUpdate = (data, id, event) => {
 module.exports = {
   onCreate,
   onShow,
-  onGetExpenses,
   getExpenses,
+  onGetExpenses,
   onDeleteExpense,
   onUpdate
 }

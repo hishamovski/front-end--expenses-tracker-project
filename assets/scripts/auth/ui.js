@@ -16,7 +16,6 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
-
   $('#sign-up')[0].reset()
   $('#feedback').show()
   clearForms()

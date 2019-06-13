@@ -142,15 +142,35 @@ const curr = new Date().getFullYear()
   const showExpensesHtml = showExpensesTemplate({ expenses: data.expenses })
   $('.content').html(showExpensesHtml)
   chart.render()
+  $('#action-feedback').addClass('success')
+  $('#action-feedback').text('Change updated successfully')
+  setTimeout(function () {
+    $('#action-feedback').hide()
+  }, 3000)
 }
 
 const getExpensesFailure = (data) => {
+  $('#action-feedback').addClass('failure')
+  $('#action-feedback').text('Change updated failed')
+  setTimeout(function () {
+    $('#action-feedback').hide()
+  }, 4000)
 }
 
 const onUpdateSuccess = responseData => {
+  $('#action-feedback').addClass('success')
+  $('#action-feedback').text('Change updated successfully')
+  setTimeout(function () {
+    $('#action-feedback').hide()
+  }, 3000)
 }
 
 const onUpdateFailure = responseData => {
+  $('#action-feedback').addClass('failure')
+  $('#action-feedback').text('Change updated failed')
+  setTimeout(function () {
+    $('#action-feedback').hide()
+  }, 3000)
 }
 
 module.exports = {
