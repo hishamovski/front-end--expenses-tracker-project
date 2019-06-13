@@ -4,13 +4,11 @@ const expenseEvents = require('../expenses/events.js')
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  $('#expense-h2').show()
   $('#sign-up')[0].reset()
   $('#feedback').show()
   $('#feedback').text('You Sign-up Successfully')
   $('#feedback').removeClass()
   $('#feedback').addClass('success')
-
   setTimeout(function () {
     $('#feedback').hide()
   }, 3000)
