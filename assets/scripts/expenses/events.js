@@ -31,9 +31,9 @@ const onGetExpenses = event => {
     .catch(ui.getExpensesFailure)
 }
 
-const getExpenses = () => {
+const getExpenses = event => {
   api.getExpenses()
-    .then(ui.getExpensesSuccess)
+    .then(ui.loadExpensesSuccess)
     .catch(ui.getExpensesFailure)
 }
 

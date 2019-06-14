@@ -28,7 +28,6 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
-
   $('#sign-in')[0].reset()
   store.user = responseData.user
   expenseEvents.getExpenses()
