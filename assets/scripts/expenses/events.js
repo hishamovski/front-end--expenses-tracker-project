@@ -8,7 +8,7 @@ const onCreate = (data, event) => {
   event.preventDefault()
   api.create(data)
     .then(function () {
-      onGetExpenses(event)
+      onGetExpenses(event, 'add')
     })
     .catch(ui.onCreateFailure)
 }
@@ -24,28 +24,28 @@ const onShow = event => {
     .catch(ui.onShowFailure)
 }
 
-const onGetExpenses = event => {
+const onGetExpenses = (event, message) => {
   event.preventDefault()
   api.getExpenses()
-    .then(ui.getExpensesSuccess)
+    .then((data) => { ui.getExpensesSuccess(data, message) })
     .catch(ui.getExpensesFailure)
 }
 
-const getExpenses = event => {
+const getExpenses = () => {
   api.getExpenses()
-    .then(ui.loadExpensesSuccess)
+    .then((data) => { ui.getExpensesSuccess(data, 'index') })
     .catch(ui.getExpensesFailure)
 }
 
 const onDeleteExpense = (event) => {
+  event.preventDefault()
   const id = $(event.target).closest('tr').data('id')
   if (id !== undefined && id !== '' && id !== 'ID') {
-    event.preventDefault()
     api.deleteExpense(id)
       .then(function () {
-        onGetExpenses(event)
+        onGetExpenses(event, 'delete')
       })
-      .catch(ui.getExpensesFailure)
+      .catch(ui.onDeleteFailure)
   }
 }
 
@@ -53,7 +53,7 @@ const onUpdate = (data, id, event) => {
   event.preventDefault()
   api.update(data, id)
     .then(function () {
-      onGetExpenses(event)
+      onGetExpenses(event, 'update')
     })
     .catch(ui.onUpdateFailure)
 }

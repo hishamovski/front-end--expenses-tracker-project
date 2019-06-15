@@ -79,8 +79,13 @@ $(() => {
   })
 
   $('.content').on('click', '.delete', function () {
-    $(this).parents('tr').remove()
-    expensesEvents.onDeleteExpense(event)
+    if ($(event.target).parents('tr').children('td:first').text() === '' ||
+     $(event.target).parents('tr').children('td:first').text() === null ||
+     $(event.target).parents('tr').children('td:first').text() === undefined) {
+      $(event.target).parents('tr').remove()
+    } else {
+      expensesEvents.onDeleteExpense(event)
+    }
   })
 
   $('.content').on('click', '.delete', expensesEvents.onDeleteExpense)
