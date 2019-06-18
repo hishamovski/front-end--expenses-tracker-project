@@ -31,22 +31,36 @@ const onGetExpenses = (event, message) => {
     .catch(ui.getExpensesFailure)
 }
 
-const getExpenses = () => {
+const getExpenses = (message) => {
   api.getExpenses()
-    .then((data) => { ui.getExpensesSuccess(data, 'index') })
+    .then((data) => { ui.getExpensesSuccess(data, message) })
     .catch(ui.getExpensesFailure)
 }
 
 const onDeleteExpense = (event) => {
   event.preventDefault()
   const id = $(event.target).closest('tr').data('id')
-  if (id !== undefined && id !== '' && id !== 'ID') {
-    api.deleteExpense(id)
-      .then(function () {
-        onGetExpenses(event, 'delete')
-      })
-      .catch(ui.onDeleteFailure)
+
+  if ($(event.target).parents('tr').children('td:first').text() === '' ||
+    $(event.target).parents('tr').children('td:first').text() === null ||
+    $(event.target).parents('tr').children('td:first').text() === undefined) {
+    $(event.target).parents('tr').remove()
+  } else {
+    if (id !== undefined && id !== '' && id !== 'ID') {
+      api.deleteExpense(id)
+        .then(function () {
+          onGetExpenses(event, 'delete')
+        })
+        .catch(ui.onDeleteFailure)
+    }
   }
+  // if (id !== undefined && id !== '' && id !== 'ID') {
+  //   api.deleteExpense(id)
+  //     .then(function () {
+  //       onGetExpenses(event, 'delete')
+  //     })
+  //     .catch(ui.onDeleteFailure)
+  // }
 }
 
 const onUpdate = (data, id, event) => {

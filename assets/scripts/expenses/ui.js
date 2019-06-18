@@ -24,7 +24,7 @@ const getExpensesSuccess = (data, message) => {
   let oct = 0
   let nov = 0
   let dec = 0
-  console.log(message)
+
   const curr = new Date().getFullYear()
   if (data.expenses.length > 0) {
     for (let i = 0; i < data.expenses.length; i++) {
@@ -73,7 +73,7 @@ const getExpensesSuccess = (data, message) => {
 
   const chart = new CanvasJS.Chart('chartContainer', {
     title: {
-      text: `Expenses Tracker in ${curr}`
+      text: `This chart represent your total spending in ${curr}`
     },
     axisX: {
       title: 'timeline',
@@ -141,16 +141,21 @@ const getExpensesSuccess = (data, message) => {
   const showExpensesHtml = showExpensesTemplate({ expenses: data.expenses })
   $('.content').html(showExpensesHtml)
   chart.render()
+  $('#action-feedback').text('')
   $('#action-feedback').removeClass()
   $('#action-feedback').addClass('success')
   if (message === 'add') {
     $('#action-feedback').text('Created successfully')
-  } else if (message === 'delete') {
-    $('#action-feedback').text('Deleted successfully')
-  } else if (message === 'update') {
-    $('#action-feedback').text('Updated successfully')
-  } else {
   }
+  if (message === 'delete') {
+    $('#action-feedback').text('Deleted successfully')
+  }
+  if (message === 'update') {
+    $('#action-feedback').text('Updated successfully')
+  }
+  if (message === 'index') {
+  }
+
   $('#action-feedback').show()
   setTimeout(function () {
     $('#action-feedback').hide()

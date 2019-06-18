@@ -43,6 +43,7 @@ const deleteExpense = function (id) {
     }
   })
 }
+
 const update = (data, id) => {
   return $.ajax({
     url: config.apiUrl + 'expenses/' + id,

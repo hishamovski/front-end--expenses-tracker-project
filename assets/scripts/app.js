@@ -78,15 +78,17 @@ $(() => {
     $(this).parents('tr').find('.add, .edit').toggle()
   })
 
-  $('.content').on('click', '.delete', function () {
-    if ($(event.target).parents('tr').children('td:first').text() === '' ||
-     $(event.target).parents('tr').children('td:first').text() === null ||
-     $(event.target).parents('tr').children('td:first').text() === undefined) {
-      $(event.target).parents('tr').remove()
-    } else {
-      expensesEvents.onDeleteExpense(event)
-    }
-  })
+  $('.content').on('click', '.delete-expense', expensesEvents.onDeleteExpense)
+
+  // $('.content').on('click', '.delete', function () {
+  //   if ($(event.target).parents('tr').children('td:first').text() === '' ||
+  //    $(event.target).parents('tr').children('td:first').text() === null ||
+  //    $(event.target).parents('tr').children('td:first').text() === undefined) {
+  //     $(event.target).parents('tr').remove()
+  //   } else {
+  //     expensesEvents.onDeleteExpense(event)
+  //   }
+  // })
 
   $('.content').on('click', '.delete', expensesEvents.onDeleteExpense)
   $('#expense-create').on('submit', expensesEvents.onCreate)
