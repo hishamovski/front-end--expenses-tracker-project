@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Expenses Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Do not add `script` tags-->
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <div class="navbar-header d-flex col">
+      <a class="navbar-brand">Expenses<b>Tracker</b></a>
+    </div>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+      <ul class="nav navbar-nav navbar ml-auto">
+        <div id="feedback"></div>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right ml-auto">
+        <li id="signin" class="nav-item">
+          <a data-toggle="dropdown" class="nav-link dropdown-toggle">Login</a>
+          <ul class="dropdown-menu form-wrapper">
+            <li>
+              <form id="sign-in">
+                <div class="form-group">
+                  <input type="email" id="text1" class="form-control" placeholder="Username" name="credentials[email]" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" id="text2" class="form-control" placeholder="Password" name="credentials[password]" required="required">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Sign-In">
+              </form>
+            </li>
+          </ul>
+        </li>
+        <li id="signup" class="nav-item">
+          <a data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+          <ul class="dropdown-menu form-wrapper">
+            <li>
+              <p class="password-validation"></p>
+            </li>
+            <li>
+              <form id="sign-up">
+                <div class="form-group">
+                  <input type="email" id="text3" class="form-control" placeholder="Email" name="credentials[email]" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" id="text4" class="form-control" placeholder="Password" name="credentials[password]" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" id="text5" class="form-control" placeholder="Confirm Password" name="credentials[password_confirmation]" required="required">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+              </form>
+            </li>
+          </ul>
+        </li>
+        <li id="profile" class="nav-item">
+          <a data-toggle="dropdown" class="nav-link dropdown-toggle"><img src="public/images/avatar.png" /></a>
+          <ul class="dropdown-menu form-wrapper">
+            <li>
+              <form id="sign-out">
+
+                <input type="submit" class="sign-out" value="Sign Out" />
+              </form>
+            </li>
+            <li>
+              <p class="messagep" id="message2">
+                <p>
+            </li>
+            <li>
+              <form id="change-password">
+                <div class="form-group">
+                  <input type="password" id="text6" class="form-control" placeholder="Old Password" name="passwords[old]" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" id="text7" class="form-control" placeholder="New Password" name="passwords[new]" required="required">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Change Password">
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <h2 id="expense-h2"> Log-In To Track Your Expenses <h2>
+
+  <div id="action-feedback"></div>
+  <div class="container">
+          <div class="table-wrapper">
+              <div class="table-title">
+                  <div class="row">
+                    <div class="col-sm-8"><h2>Expenses <b>Details</b></h2></div>
+
+                      <div class="col-sm-4">
+                          <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                      </div>
+                    </div>
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>Expense_ID</th>
+                          <th>Amount</th>
+                          <th>Date</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody class="content">
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+
+  <div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#stats" role="tab" aria-controls="home">Chart</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="stats" role="tabpanel">
+  </div>
+
+    </div>
+  </div>
+
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+
+</body>
+
+</html>
