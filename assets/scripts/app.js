@@ -24,7 +24,7 @@ $(() => {
     const row = '<tr>' +
       '<td><input type="text" value="ID" class="form-control" name="name" id="name" readonly></td>' +
       '<td><input type="text" class="form-control" name="department" id="department" ></td>' +
-      '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
+      '<td><input type="text" class="form-control" placeholder="yyyy-mm-dd" name="phone" id="phone"></td>' +
       '<td><a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"></i></a><a class="delete" title="Delete" data-id="{{expense.id}}"  data-toggle="tooltip"><i class="material-icons"></i></a></td>' +
     '</tr>'
     // '<td><input type="text" class="form-control" name="id" id="name"></td>' +
